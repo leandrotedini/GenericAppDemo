@@ -1,0 +1,7 @@
+PUT http://localhost:3003/api/posts/63792327b717d4f51dd52bb2/like HTTP/1.1
+content-type: application/json
+Authorization: bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6IkBUZXN0IiwiaWQiOiI2Mzc5MWZmM2FiY2YzYzk4MDI0MmMzOTgiLCJpYXQiOjE2Njg4ODI2MjZ9.Ki-GD8gfXhLkmUMIcwiFZFLs6hHWAkNsAOgHS3Ja044
+
+{
+  "postId": "63792327b717d4f51dd52bb2"
+}

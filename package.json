@@ -1,0 +1,33 @@
+{
+  "name": "blogs-app",
+  "private": true,
+  "version": "1.0.0",
+  "description": "",
+  "workspaces": [
+    "api",
+    "app"
+  ],
+  "main": "index.js",
+  "scripts": {
+    "build": "npm run build --workspace=app",
+    "star": "npm run start --workspace=api",
+    "dev:api": "npm run build && npm run dev --workspace=api"
+  },
+  "devDependencies": {
+    "eslint-plugin-cypress": "^2.12.1",
+    "eslint-plugin-jest": "^26.8.2"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@chakra-ui/icons": "^2.0.11",
+    "@chakra-ui/react": "^2.3.5",
+    "@emotion/react": "^11.10.4",
+    "@emotion/styled": "^11.10.4",
+    "@reduxjs/toolkit": "^1.8.5",
+    "framer-motion": "^7.5.3",
+    "react-redux": "^8.0.4",
+    "react-router-dom": "^6.4.1"
+  }
+}
