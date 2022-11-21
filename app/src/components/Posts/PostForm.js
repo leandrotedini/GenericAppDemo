@@ -15,27 +15,20 @@ import {
   Heading,
   Box,
   FormControl,
-  FormLabel,
-  Input,
+  Textarea
 } from '@chakra-ui/react'
 
 const PostForm = ({ isOpen, onClose }) => {
   const [ buttonDisabled, setButtonDisabled ] = useState(true)
-  const { reset: resetTitle, ...title } = useField('text')
-  const { reset: resetAuthor, ...author } = useField('text')
-  const { reset: resetUrl, ...url } = useField('text')
+  const { reset: resetContent, ...content } = useField('text')
   const dispatch = useDispatch()
 
   useEffect(() => {
-    setButtonDisabled(title.value === ''
-      || author.value === ''
-      || url.value === '')
-  }, [title, author, url])
+    setButtonDisabled(content.value === '')
+  }, [content])
 
   const closeModal = () => {
-    resetTitle()
-    resetAuthor()
-    resetUrl()
+    resetContent()
     onClose()
   }
 
@@ -43,9 +36,7 @@ const PostForm = ({ isOpen, onClose }) => {
     event.preventDefault()
 
     const newPost = {
-      title: title.value,
-      author: author.value,
-      url: url.value
+      content: content.value
     }
 
     try {
@@ -75,31 +66,20 @@ const PostForm = ({ isOpen, onClose }) => {
           <ModalCloseButton />
           <ModalBody>
             <Box>
-              <FormControl id="title" isRequired>
-                <FormLabel>Title</FormLabel>
-                <Input { ...title } />
-              </FormControl>
-            </Box>
-            <Box>
-              <FormControl id="author" isRequired>
-                <FormLabel>Author</FormLabel>
-                <Input { ...author } />
-              </FormControl>
-            </Box>
-            <Box>
-              <FormControl id="url" isRequired>
-                <FormLabel>URL</FormLabel>
-                <Input { ...url } />
+              <FormControl id="content">
+                <Textarea
+                  { ...content }
+                  placeholder='Share what you want!'/>
               </FormControl>
             </Box>
           </ModalBody>
 
           <ModalFooter>
             <Button
-              bg='gray.400'
+              bg='gray.500'
               color={'white'}
               _hover={{
-                bg: 'gray.500',
+                bg: 'gray.600',
               }}
               mr={3}
               onClick={closeModal}>
@@ -107,10 +87,10 @@ const PostForm = ({ isOpen, onClose }) => {
             </Button>
             <Button
               type="submit"
-              bg='blue.400'
+              bg='blue.500'
               color={'white'}
               _hover={{
-                bg: 'blue.500',
+                bg: 'blue.600',
               }}
               isDisabled={buttonDisabled}>
                 Create
