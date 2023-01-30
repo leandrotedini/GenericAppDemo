@@ -8,6 +8,7 @@ import User from './Users/User'
 import Login from './Login'
 import RegisterForm from './RegisterForm'
 import PostDetails from './Posts/PostDetails'
+import UserProfile from './Users/UserProfile'
 
 const AppRoutes = () => {
   const user = useSelector(selectUserLogged)
@@ -25,6 +26,7 @@ const AppRoutes = () => {
       <Route path='posts/:id' element={<PostDetails />} />
       <Route path='users' element={<UserList/>} />
       <Route path='users/:id' element={<User />} />
+      <Route path='profile' element={<UserProfile />} />
     </Routes>
   )
 }

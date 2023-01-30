@@ -23,6 +23,14 @@ const NavMenu = () => {
         <NavMenuItem>
           <LinkBox
             as={ReactRouterLink}
+            to='profile'
+          >
+            Profile
+          </LinkBox>
+        </NavMenuItem>
+        <NavMenuItem>
+          <LinkBox
+            as={ReactRouterLink}
             to='/'
             onClick={() => dispatch(logout())}
           >
